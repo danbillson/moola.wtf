@@ -1,0 +1,26 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 12px;
+
+    &__label {
+        font-size: 12px;
+        color: #fff;
+        padding: 4px 8px;
+    }
+
+    &__input {
+        padding: 8px 12px;
+        border-radius: 3px;
+        border: 1px solid #fff;
+        box-shadow: 0px 3px 7px -1px rgba(71, 11, 71, 0.4);
+        transition: 0.2s ease-in-out;
+
+        &:focus {
+            outline: none;
+            border: 1px solid #ad80d3;
+        }
+    }
+}

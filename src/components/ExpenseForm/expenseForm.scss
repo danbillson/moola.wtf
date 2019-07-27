@@ -1,0 +1,50 @@
+.expenseForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    padding: 60px 5%;
+    background-color: #e27cc6;
+
+    &__title {
+        color: #fff;
+        font-size: 32px;
+        margin-bottom: 60px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    &__line {
+        border: 0.5px solid #ad80d3;
+        width: 100%;
+        margin: 30px 0;
+    }
+
+    &__error {
+        color: #fff;
+        font-weight: 900;
+    }
+
+    &__leftover {
+        margin-top: 30px;
+        color: #fff;
+        font-family: 'Montserrat Alternates';
+        font-size: 18px;
+
+        span {
+            font-weight: 900;
+        }
+    }
+
+    .button {
+        align-self: flex-end;
+        margin-top: 18px;
+    }
+}
