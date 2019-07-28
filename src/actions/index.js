@@ -18,12 +18,13 @@ export const signUp = (formProps, callback) => async dispatch => {
 
         dispatch({ type: AUTH_USER, payload: data.token });
         localStorage.setItem('token', data.token);
-        callback();
+        callback(data, '');
     } catch (error) {
         dispatch({
             type: AUTH_ERROR,
             payload: error.response.data.error || 'An error occured'
         });
+        callback({}, error.response.data.error);
     }
 };
 
@@ -33,12 +34,17 @@ export const signIn = (formProps, callback) => async dispatch => {
 
         dispatch({ type: AUTH_USER, payload: data.token });
         localStorage.setItem('token', data.token);
-        callback();
+        callback(data, '');
     } catch (error) {
+        const errorMessage =
+            error.response.data === 'Unauthorized'
+                ? 'Unable to find email and password combination'
+                : error.response.data.error;
         dispatch({
             type: AUTH_ERROR,
-            payload: error.response.data.error || 'An error occured'
+            payload: errorMessage || 'An error occured'
         });
+        callback({}, errorMessage || 'An error occured');
     }
 };
 

@@ -2,6 +2,7 @@ import './header.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import MobileNav from '../MobileNav';
 
 const Header = props => {
@@ -11,7 +12,13 @@ const Header = props => {
             : props.header.loggedOutLinks;
         return links.map(({ text, link }) => (
             <li key={text}>
-                <Link to={link}>{text}</Link>
+                {text === 'Sign Out' ? (
+                    <Link to={link} onClick={() => props.signOut()}>
+                        {text}
+                    </Link>
+                ) : (
+                    <Link to={link}>{text}</Link>
+                )}
             </li>
         ));
     };
@@ -33,4 +40,7 @@ const mapStateToProps = state => {
     return { isLoggedIn: state.auth.token };
 };
 
-export default connect(mapStateToProps)(Header);
+export default connect(
+    mapStateToProps,
+    actions
+)(Header);

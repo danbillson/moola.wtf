@@ -4,11 +4,11 @@ import Button from '../Button';
 
 const Hero = props => {
     const renderButtons = () => {
-        return props.hero.cta.map(({ text, link, style }) => (
+        return props.hero.cta.map(({ text, link, prominence }) => (
             <Button
                 key={text}
                 text={text}
-                style={style}
+                prominence={prominence}
                 onClick={() => (window.location.href = link)}
             />
         ));

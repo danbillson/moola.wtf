@@ -12,7 +12,7 @@ const ExpenseForm = props => {
 
     const renderExpenses = () => {
         return props.expenses.map(expense => (
-            <div className="expenseForm__expense">
+            <div className="form__expense">
                 <Input
                     key={expense.name}
                     readOnly
@@ -57,16 +57,16 @@ const ExpenseForm = props => {
     };
 
     return (
-        <div id="expense" className="expenseForm">
-            <h2 className="expenseForm__title">{props.expenseTracker.title}</h2>
-            <form className="expenseForm__form">
+        <div id="expense" className="form">
+            <h2 className="form__title">{props.expenseTracker.title}</h2>
+            <form className="form__form">
                 <Input
                     label="monthly income"
                     placeholder="£"
                     value={props.income}
                     onChange={e => props.setIncome(e.target.value)}
                 />
-                <span className="expenseForm__line" />
+                <span className="form__line" />
                 {renderExpenses()}
                 <Input
                     label="expense"
@@ -80,15 +80,15 @@ const ExpenseForm = props => {
                     value={expenseAmount}
                     onChange={e => setExpenseAmount(e.target.value)}
                 />
-                {error && <p className="expenseForm__error">{error}</p>}
+                {error && <p className="form__error">{error}</p>}
                 <Button
                     type="button"
                     text="Add Expense"
-                    style="tertiary"
+                    prominence="tertiary"
                     onClick={() => onSubmit()}
                 />
             </form>
-            <p className="expenseForm__leftover">
+            <p className="form__leftover">
                 money left over: <span>£{leftover()}</span>
             </p>
         </div>

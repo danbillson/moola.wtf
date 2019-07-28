@@ -12,7 +12,7 @@ const DescriptionCTA = ({ descriptionCTA }) => {
             <Button
                 text={descriptionCTA.cta.text}
                 onClick={() => (window.location.href = descriptionCTA.cta.link)}
-                style={descriptionCTA.cta.style}
+                prominence={descriptionCTA.cta.prominence}
             />
         </div>
     );

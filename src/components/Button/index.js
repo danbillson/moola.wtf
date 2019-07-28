@@ -1,9 +1,9 @@
 import './button.scss';
 import React from 'react';
 
-const Button = ({ text, style = 'primary', ...rest }) => {
+const Button = ({ text, prominence = 'primary', ...rest }) => {
     return (
-        <button className={`button ${style}`} {...rest}>
+        <button className={`button ${prominence}`} {...rest}>
             {text}
         </button>
     );

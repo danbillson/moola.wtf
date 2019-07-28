@@ -33,12 +33,12 @@ export const hero = {
         {
             text: 'Sign Up',
             link: '/signup',
-            style: 'primary'
+            prominence: 'primary'
         },
         {
             text: 'Try Now',
             link: '#expenseTracker',
-            style: 'secondary'
+            prominence: 'secondary'
         }
     ],
     image: <Wallet className="hero__image" />
@@ -55,7 +55,7 @@ export const needMore = {
     cta: {
         text: 'Sign Up',
         link: '/signup',
-        style: 'primary'
+        prominence: 'primary'
     }
 };
 
