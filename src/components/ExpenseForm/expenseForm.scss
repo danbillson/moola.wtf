@@ -43,6 +43,43 @@
         }
     }
 
+    &__expense {
+        position: relative;
+        width: 100%;
+
+        &:hover .removeInput {
+            opacity: 1;
+        }
+
+        .removeInput {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            position: absolute;
+            top: 14px;
+            right: 12px;
+            width: 20px;
+            height: 20px;
+            background-color: #e86262;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+
+            &__line1,
+            &__line2 {
+                position: absolute;
+                width: 50%;
+                border: 1px solid #fff;
+                transform: rotateZ(45deg);
+            }
+
+            &__line2 {
+                transform: rotateZ(-45deg);
+            }
+        }
+    }
+
     .button {
         align-self: flex-end;
         margin-top: 18px;

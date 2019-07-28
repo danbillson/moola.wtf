@@ -12,11 +12,20 @@ const ExpenseForm = props => {
 
     const renderExpenses = () => {
         return props.expenses.map(expense => (
-            <Input
-                key={expense.name}
-                readOnly
-                value={`${expense.name} - £${expense.amount}`}
-            />
+            <div className="expenseForm__expense">
+                <Input
+                    key={expense.name}
+                    readOnly
+                    value={`${expense.name} - £${expense.amount}`}
+                />
+                <span
+                    className="removeInput"
+                    onClick={() => props.removeExpense(expense)}
+                >
+                    <span className="removeInput__line1" />
+                    <span className="removeInput__line2" />
+                </span>
+            </div>
         ));
     };
 
