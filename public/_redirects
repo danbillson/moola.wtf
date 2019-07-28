@@ -1,0 +1,4 @@
+# Redirect / to /#/ for Hash Router
+/signup /#/signup
+/signin /#/signin
+/profile /#/profile
