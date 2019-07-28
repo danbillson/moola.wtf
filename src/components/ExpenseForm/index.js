@@ -7,7 +7,7 @@ import Button from '../../components/Button';
 
 const ExpenseForm = props => {
     const [expenseName, setExpenseName] = useState('');
-    const [expenseAmount, setExpenseAmount] = useState(null);
+    const [expenseAmount, setExpenseAmount] = useState('');
     const [error, setError] = useState('');
 
     const renderExpenses = () => {
@@ -24,7 +24,8 @@ const ExpenseForm = props => {
         if (props.expenses) {
             const totalExpenses = props.expenses
                 .map(expense => expense.amount)
-                .reduce((acc, cur) => acc + cur, 0);
+                .reduce((acc, cur) => acc + Number(cur), 0);
+            console.log(totalExpenses);
             return props.income - totalExpenses;
         }
 
@@ -42,7 +43,7 @@ const ExpenseForm = props => {
             amount: expenseAmount
         });
         setExpenseName('');
-        setExpenseAmount(null);
+        setExpenseAmount('');
         setError('');
     };
 
