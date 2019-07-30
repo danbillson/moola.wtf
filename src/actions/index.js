@@ -9,7 +9,7 @@ import {
 
 const apiURL =
     process.env.NODE_ENV === 'production'
-        ? 'http://api.moola.wtf'
+        ? 'https://api.moola.wtf'
         : 'http://localhost:3090';
 
 export const signUp = (formProps, callback) => async dispatch => {
