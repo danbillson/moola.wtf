@@ -12,9 +12,8 @@ const BasicExpenseForm = props => {
 
     const renderExpenses = () => {
         return props.expenses.map(expense => (
-            <div className="form__expense">
+            <div className="form__expense" key={expense.name}>
                 <Input
-                    key={expense.name}
                     readOnly
                     value={`${expense.name} - £${expense.amount}`}
                 />
@@ -34,7 +33,6 @@ const BasicExpenseForm = props => {
             const totalExpenses = props.expenses
                 .map(expense => expense.amount)
                 .reduce((acc, cur) => acc + Number(cur), 0);
-            console.log(totalExpenses);
             return props.income - totalExpenses;
         }
 
