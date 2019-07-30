@@ -1,11 +1,11 @@
-import './expenseForm.scss';
+import './basicExpenseForm.scss';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-const ExpenseForm = props => {
+const BasicExpenseForm = props => {
     const [expenseName, setExpenseName] = useState('');
     const [expenseAmount, setExpenseAmount] = useState('');
     const [error, setError] = useState('');
@@ -57,7 +57,7 @@ const ExpenseForm = props => {
     };
 
     return (
-        <div id="expense" className="form">
+        <div id="expenseTracker" className="form">
             <h2 className="form__title">{props.expenseTracker.title}</h2>
             <form className="form__form">
                 <Input
@@ -96,10 +96,13 @@ const ExpenseForm = props => {
 };
 
 const mapStateToProps = state => {
-    return { income: state.expense.income, expenses: state.expense.expenses };
+    return {
+        income: state.basicExpense.income,
+        expenses: state.basicExpense.expenses
+    };
 };
 
 export default connect(
     mapStateToProps,
     actions
-)(ExpenseForm);
+)(BasicExpenseForm);

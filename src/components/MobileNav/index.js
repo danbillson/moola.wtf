@@ -16,7 +16,9 @@ const MobileNav = props => {
                 onClick={() => setOpen(!open)}
             />
             <div className={withActive('mobileNav')}>
-                <ul className="mobileNav__links">{props.links}</ul>
+                <ul className="mobileNav__links" onClick={() => setOpen(false)}>
+                    {props.links}
+                </ul>
             </div>
         </>
     );

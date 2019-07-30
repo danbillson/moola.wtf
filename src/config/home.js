@@ -32,7 +32,7 @@ export const hero = {
     cta: [
         {
             text: 'Sign Up',
-            link: '/signup',
+            link: '/#/signup',
             prominence: 'primary'
         },
         {
@@ -54,7 +54,7 @@ export const needMore = {
         'If you feel like you need a bit more control, you have multiple income sources to track, some expenses occur every three months or you have a large one off payment that you’d like to account for then create an account to gain access to the detailed expense tracker to solve all of the above and more.',
     cta: {
         text: 'Sign Up',
-        link: '/signup',
+        link: '/#/signup',
         prominence: 'primary'
     }
 };

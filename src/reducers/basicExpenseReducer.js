@@ -2,7 +2,7 @@ import { SET_INCOME, ADD_EXPENSE, REMOVE_EXPENSE } from '../actions/types';
 
 const initialState = {
     income: null,
-    expenses: []
+    basicExpenses: []
 };
 
 export default (state = initialState, action) => {
@@ -11,12 +11,15 @@ export default (state = initialState, action) => {
             return { ...state, income: action.payload };
         }
         case ADD_EXPENSE: {
-            return { ...state, expenses: [...state.expenses, action.payload] };
+            return {
+                ...state,
+                basicExpenses: [...state.basicExpenses, action.payload]
+            };
         }
         case REMOVE_EXPENSE: {
             return {
                 ...state,
-                expenses: state.expenses.filter(
+                basicExpenses: state.basicExpenses.filter(
                     expense => expense !== action.payload
                 )
             };

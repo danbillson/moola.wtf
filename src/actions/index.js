@@ -16,8 +16,7 @@ export const signUp = (formProps, callback) => async dispatch => {
     try {
         const { data } = await axios.post(`${apiURL}/signup`, formProps);
 
-        dispatch({ type: AUTH_USER, payload: data.token });
-        localStorage.setItem('token', data.token);
+        dispatch({ type: AUTH_USER, payload: data });
         callback(data, '');
     } catch (error) {
         dispatch({
@@ -32,8 +31,7 @@ export const signIn = (formProps, callback) => async dispatch => {
     try {
         const { data } = await axios.post(`${apiURL}/signin`, formProps);
 
-        dispatch({ type: AUTH_USER, payload: data.token });
-        localStorage.setItem('token', data.token);
+        dispatch({ type: AUTH_USER, payload: data });
         callback(data, '');
     } catch (error) {
         const errorMessage =
@@ -49,8 +47,6 @@ export const signIn = (formProps, callback) => async dispatch => {
 };
 
 export const signOut = () => {
-    localStorage.removeItem('token');
-
     return {
         type: AUTH_USER,
         payload: ''

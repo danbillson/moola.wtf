@@ -9,7 +9,11 @@ const Hero = props => {
                 key={text}
                 text={text}
                 prominence={prominence}
-                onClick={() => (window.location.href = link)}
+                onClick={() =>
+                    link[0] === '/'
+                        ? (window.location.href = link)
+                        : document.querySelector(link).scrollIntoView()
+                }
             />
         ));
     };
