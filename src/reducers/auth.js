@@ -2,7 +2,9 @@ import { AUTH_USER, AUTH_ERROR } from '../actions/types';
 
 const initialState = {
     token: '',
-    error: ''
+    error: '',
+    userId: '',
+    name: ''
 };
 
 export default (state = initialState, action) => {
@@ -11,6 +13,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 token: action.payload.token,
+                userId: action.payload.userId,
                 name: action.payload.name,
                 error: ''
             };

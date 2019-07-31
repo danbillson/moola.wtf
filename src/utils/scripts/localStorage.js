@@ -6,7 +6,8 @@ export const loadState = () => {
                 auth: {
                     name: '',
                     error: '',
-                    token: ''
+                    token: '',
+                    userId: ''
                 },
                 basicExpense: {
                     income: '',
