@@ -1,7 +1,12 @@
-import { SET_INCOME, ADD_EXPENSE, REMOVE_EXPENSE } from '../actions/types';
+import {
+    SET_INCOME,
+    ADD_EXPENSE,
+    REMOVE_EXPENSE,
+    RESET_EXPENSES
+} from '../actions/types';
 
 const initialState = {
-    income: null,
+    income: '',
     expenses: []
 };
 
@@ -22,6 +27,13 @@ export default (state = initialState, action) => {
                 expenses: state.expenses.filter(
                     expense => expense !== action.payload
                 )
+            };
+        }
+        case RESET_EXPENSES: {
+            return {
+                ...state,
+                expenses: [],
+                income: ''
             };
         }
         default: {

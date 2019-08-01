@@ -9,11 +9,15 @@ const DescriptionCTA = ({ descriptionCTA }) => {
             <p className="descriptionCTA__description">
                 {descriptionCTA.description}
             </p>
-            <Button
-                text={descriptionCTA.cta.text}
-                onClick={() => (window.location.href = descriptionCTA.cta.link)}
-                prominence={descriptionCTA.cta.prominence}
-            />
+            {descriptionCTA.cta && (
+                <Button
+                    text={descriptionCTA.cta.text}
+                    onClick={() =>
+                        (window.location.href = descriptionCTA.cta.link)
+                    }
+                    prominence={descriptionCTA.cta.prominence}
+                />
+            )}
         </div>
     );
 };

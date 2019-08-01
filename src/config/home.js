@@ -14,10 +14,10 @@ export const header = {
         }
     ],
     loggedInLinks: [
-        {
-            text: 'Profile',
-            link: '/profile'
-        },
+        // {
+        //     text: 'Profile',
+        //     link: '/profile'
+        // },
         {
             text: 'Sign Out',
             link: '/'

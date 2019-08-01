@@ -3,6 +3,7 @@ import {
     SET_INCOME,
     ADD_EXPENSE,
     REMOVE_EXPENSE,
+    RESET_EXPENSES,
     AUTH_USER,
     AUTH_ERROR
 } from './types';
@@ -71,5 +72,12 @@ export const removeExpense = expense => {
     return {
         type: REMOVE_EXPENSE,
         payload: expense
+    };
+};
+
+export const resetExpenses = () => {
+    return {
+        type: RESET_EXPENSES,
+        payload: ''
     };
 };

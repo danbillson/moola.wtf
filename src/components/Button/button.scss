@@ -19,6 +19,17 @@
         }
     }
 
+    &.primary-purple {
+        background-color: #ad80d3;
+        color: #fff;
+        border: 1px solid #ad80d3;
+
+        &:hover {
+            background-color: #8d5db4;
+            border: 1px solid #8d5db4;
+        }
+    }
+
     &.secondary {
         background-color: #fff;
         color: #222;

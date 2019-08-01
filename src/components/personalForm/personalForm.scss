@@ -1,0 +1,13 @@
+#personalForm {
+    background-color: #fff;
+    padding: 0px 5%;
+
+    .input {
+        &__label {
+            color: #222;
+        }
+        &__input {
+            background-color: #ad80d360;
+        }
+    }
+}
