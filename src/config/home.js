@@ -59,6 +59,8 @@ export const needMore = {
     }
 };
 
+export const formUse = `Use the form below to add income sources and expenses along with the frequency they take place or add a one off payment. See the statistics below to see how much money you'll have left over for a given month.`;
+
 export const footer = {
     title: 'MOOLA.',
     description: 'created by dan billson'

@@ -13,6 +13,7 @@ const SignIn = props => {
         if (!email || !password) {
             return setError('You must enter an email and password');
         }
+        setError('');
 
         props.signIn({ email, password }, (res, err) => {
             if (err) {

@@ -2,7 +2,7 @@ import './profile.scss';
 import React from 'react';
 import { connect } from 'react-redux';
 import DescriptionCTA from '../../components/DescriptionCTA';
-import PersonalForm from '../../components/personalForm';
+import PersonalForm from '../../components/PersonalForm';
 import { description } from '../../config/profile';
 
 const Profile = props => {

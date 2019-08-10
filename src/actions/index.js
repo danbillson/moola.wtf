@@ -5,7 +5,12 @@ import {
     REMOVE_EXPENSE,
     RESET_EXPENSES,
     AUTH_USER,
-    AUTH_ERROR
+    AUTH_ERROR,
+    GET_TRANSACTIONS,
+    ADD_TRANSACTION,
+    DELETE_TRANSACTION,
+    UPDATE_TRANSACTION,
+    TRANSACTION_ERROR
 } from './types';
 
 const apiURL =
@@ -13,6 +18,7 @@ const apiURL =
         ? 'https://api.moola.wtf'
         : 'http://localhost:3090';
 
+// Auth actions
 export const signUp = (formProps, callback) => async dispatch => {
     try {
         const { data } = await axios.post(`${apiURL}/signup`, formProps);
@@ -53,6 +59,76 @@ export const signOut = () => {
         payload: ''
     };
 };
+
+// Expense actions
+
+export const getTransactions = (userId, token) => async dispatch => {
+    try {
+        const { data } = await axios.get(`${apiURL}/getTransactions`, {
+            params: { userId },
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: token
+            }
+        });
+        dispatch({ type: GET_TRANSACTIONS, payload: data.transactions });
+    } catch (error) {
+        dispatch({
+            type: TRANSACTION_ERROR,
+            payload: error.response.data.error
+        });
+    }
+};
+
+export const addTransaction = (
+    userId,
+    transaction,
+    token
+) => async dispatch => {
+    try {
+        const { data } = await axios.post(
+            `${apiURL}/addTransaction`,
+            { userId, transaction },
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    authorization: token
+                }
+            }
+        );
+
+        dispatch({ type: ADD_TRANSACTION, payload: data.transaction });
+    } catch (error) {
+        dispatch({
+            type: TRANSACTION_ERROR,
+            payload: error.response.data.error
+        });
+    }
+};
+
+export const deleteTransaction = (
+    userId,
+    transactionId,
+    token
+) => async dispatch => {
+    try {
+        await axios.delete(`${apiURL}/deleteTransaction`, {
+            data: { userId, transactionId },
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: token
+            }
+        });
+        dispatch({ type: DELETE_TRANSACTION, payload: transactionId });
+    } catch (error) {
+        dispatch({
+            type: TRANSACTION_ERROR,
+            payload: error.response.data.error
+        });
+    }
+};
+
+// Basic expense actions
 
 export const setIncome = income => {
     return {
